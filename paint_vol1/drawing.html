@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Joonistamine</title>
+			<meta charset="UTF-8">
+			<script src="script/app.js"></script>
+			<link rel="stylesheet" type="text/css" href="css/style.css">
+		</head>
+
+		<body onload="points(); draw()">
+		<div class="main">
+		<h1>Joonistamine ja punkti tabamine</h1>
+ 		<canvas id="canvas" width="700" height="450"></canvas><br />
+ 		<div class="answer" id="answer"></div>
+ 		<h2>Läbisid <span id="counter">0</span> punkti.</h2>
+ 		<input class="button" type="button" value="Alusta uuesti!" onclick="history.go(0)" />
+ 		</div>
+
+ 		</body>
+
+	</html>

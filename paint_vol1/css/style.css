@@ -1,0 +1,49 @@
+
+body {
+	background: #ede9e3;
+	text-align: center;
+}
+
+* {
+	font-family: Helvetica, Arial, sans-serif;
+	color: #0D4963;
+	font-size: 14px;
+}
+
+.main {
+	padding: 20px 0px 20px 0px;
+}
+
+h1 {
+	font-size: 16px;
+	font-style: bold;
+	padding: 0px 0px 15px 0px;
+}
+
+h2 {
+	font-size: 14px;
+	font-style: normal;
+	padding: 0px;
+}
+
+.button {
+  border-radius: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-style: bold;
+  font-size: 12px;
+  padding: 1px 6px 1px 6px;
+  background: #FFF;
+  border: solid #333 1px;
+}
+
+.button:hover {
+  background: #F3D6C9;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+canvas {
+	background-color: #FFF;
+	border: 1px solid #ccc;
+	cursor: crosshair;
+	}
