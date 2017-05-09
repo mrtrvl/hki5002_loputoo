@@ -4,50 +4,54 @@ window.onload = () => {
 
 class App {
 	constructor() {
+		this.isDrawing = false;
 		document.querySelector('body').
 			appendChild(Elements.createHeading('h1', 'Joonistamine'));
 		document.querySelector('body').
 			appendChild(Elements.createParagraph('p', 'Joonista midagi ilusat palun'));
 		document.querySelector('body').
 			appendChild(Elements.createDiv('canvas_div'));
-		// document.querySelector('body').
-		// 		appendChild(Elements.createButton('button', 'Tee ring!'));
-		// document.querySelector(`#${'button'}`).addEventListener('click', this.doSomething.bind(this));
-		document.addEventListener('mousedown', this.doSomething.bind(this));
-
 		this.canvas = new Canvas(700, 400 , 'canvas_div');
+
+		document.querySelector('canvas')
+			.addEventListener('mousedown', this.doSomething.bind(this));
+		document.querySelector('canvas')
+			.addEventListener('mousemove', this.movement.bind(this));
+		document.querySelector('canvas')
+			.addEventListener('mouseup', this.stop.bind(this));
 	}
 
-	doSomething() {
-		let isDrawing;
-		let canvasplace = document.querySelector(`#${'canvas_div'}`).getBoundingClientRect();
+	doSomething(e) {
+		console.log(e);
+		let canvasPlace = document.querySelector('canvas').getBoundingClientRect();
+		let mouseX = e.clientX - canvasPlace.left;
+		let mouseY = e.clientY - canvasPlace.top;
+		this.isDrawing = true;
+		this.canvas.context.moveTo(mouseX, mouseY);
+		}
+	// Movement funtion gets called via event
+	movement(e) {
+		if (this.isDrawing) {
+			let canvasPlace = document.querySelector('canvas').getBoundingClientRect();
+			let mouseX = e.clientX - canvasPlace.left;
+			let mouseY = e.clientY - canvasPlace.top;
+			this.canvas.context.lineTo(mouseX, mouseY);
+			this.canvas.context.stroke();
 
-		canvas_div.onmousedown = function(e) {
-	 		let mouseX = e.clientX - canvasplace.left;
-	 		let mouseY = e.clientY - canvasplace.top;
-	 		console.log(mouseX);
-	  		isDrawing = true;
-	  		this.canvas.context.moveTo(mouseX, mouseY);
-		};
-
-		this.canvas.onmousemove = function(e) {
-	 		let mousex = e.clientX - canvasplace.left;
-	 		let mousey = e.clientY - canvasplace.top;
-	 			if (isDrawing) {
-				this.canvas.context.lineTo(mouseX, mouseY);
-	   			this.canvas.context.stroke();
-	 			}
-	  	};
-
-		this.canvas.onmouseup = function() {
-	  		isDrawing = false;
-		};
-
+			// Check if we go out from canvas - not sure if needed???
+			if (mouseX > e.clientX - canvasPlace.left || mouseX < 0) {
+				this.isDrawing = false;
+			} else if (mouseY > e.clientY - canvasPlace.top || mouseY < 0) {
+				this.isDrawing = false;
+			}
+		}
 	}
-	// doSomething() {
-	// 	const brush = new Brush(350, 200, 20, "pink");
-	// 	this.canvas.addItems(brush);
-	// 	this.canvas.show();
-	// }
-
+	
+	// Stop drawing
+	stop(e) {
+		this.isDrawing = false;
+	}
+		// WTF?
+		// doSomething() {
+		// this.canvas.onmousemove = function(e) {
 }
