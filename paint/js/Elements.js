@@ -20,13 +20,13 @@ class Elements {
 		return paragraph;
 	}
 
-	// static createButton(id, text) {
-	// 	const button = document.createElement('input');
-	// 	button.setAttribute('id', id);
-	// 	button.type = 'button';
-	// 	button.value = text;
-	// 	return button;
-	// }
+	static createButton(id, text) {
+		const button = document.createElement('input');
+		button.setAttribute('id', id);
+		button.type = 'button';
+		button.value = text;
+		return button;
+	}
 
 	// static createSelect(id) {
 	// 	const select = document.createElement('select');
