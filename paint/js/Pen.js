@@ -1,4 +1,4 @@
-class Brush extends Tools {
+class Pen extends Tools {
 	constructor(x, y, radius, color) {
 		this.x = x;
 		this.y = y;
@@ -14,5 +14,4 @@ class Brush extends Tools {
 		this.context.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
 		this.context.fill();
 	}
-
 }

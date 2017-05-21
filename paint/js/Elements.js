@@ -28,17 +28,17 @@ class Elements {
 		return button;
 	}
 
-	// static createSelect(id) {
-	// 	const select = document.createElement('select');
-	// 	select.setAttribute('id', id);
-	// 	for (let i = 0; i < 10; i++) {
-	// 		const option = document.createElement('option');
-	// 		option.value += i;
-	// 		option.innerHTML = option.value;
-	// 		select.appendChild(option);
-	// 	}
-	// 	return select;
-	// }
+	static createSelect(id) {
+		const select = document.createElement('select');
+		select.setAttribute('id', id);
+		for (let i = 0; i < 10; i++) {
+			const option = document.createElement('option');
+			option.value += i;
+			option.innerHTML = option.value;
+			select.appendChild(option);
+		}
+		return select;
+	}
 
 	// static createNumberInput(id, value) {
 	// 	const numberInput = document.createElement('input');
