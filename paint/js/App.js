@@ -1,6 +1,11 @@
 window.onload = () => {
 	new App();
-	new Tools();
+	tool = new Tools();
+
+	color.onchange = function(){
+		tool.radius = color.value * 5;
+		console.log(color.value);
+	}
 }
 
 class App {
